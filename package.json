@@ -1,6 +1,6 @@
 {
   "name": "wallet-tracker-api",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "api for wallet transactions",
   "author": "Ran Har-Shuv",
   "license": "MIT",
