@@ -2,7 +2,8 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return 'Hello World!';
+  getDefaultPage(): string {
+    return `<h1>Wallet Tracker API</h1>
+    `;
   }
 }
