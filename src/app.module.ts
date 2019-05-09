@@ -4,10 +4,11 @@ import { AppService } from './app.service';
 import { UsersService } from './users.service';
 import { MongooseDbService } from './mongoosedb.service';
 import { AuthMiddleware } from './middleware/authentication';
+import { UserController } from './user/user.controller';
 
 @Module({
   imports: [],
-  controllers: [AppController],
+  controllers: [AppController, UserController],
   providers: [AppService, MongooseDbService, UsersService],
 })
 export class AppModule implements NestModule {

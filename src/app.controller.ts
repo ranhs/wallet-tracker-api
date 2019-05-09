@@ -17,16 +17,6 @@ export class AppController {
     return this.appService.getDefaultPage();
   }
 
-  static MyHeader(name: string, value : string): MethodDecorator {
-    let d = Header(name, value);
-    console.log("MyHeader was called", d)
-    return (target, propertyKey, descriptor)=>{
-      let x = d(target, propertyKey, descriptor)
-      console.log('MethodDescriptor was called', x)
-      return x
-    };
-  }
-
   @Post('users')
   async createUser(@Body() newUser: IUser): Promise<{ user: IUser, token: string}> {
     try {
