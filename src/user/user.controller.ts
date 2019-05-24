@@ -1,15 +1,15 @@
 import { Controller, Post, Body, HttpException, HttpStatus, HttpCode, Req, Get, Param, Patch, Delete } from '@nestjs/common';
 import { IUser } from 'src/interfaces/user.interface';
-import { UsersService } from 'src/users.service';
+import { UsersService } from 'src/user/users.service';
 import { RequestEx } from 'src/middleware/authentication';
 
-@Controller('user')
+@Controller('users')
 export class UserController {
   
     constructor(private usersService: UsersService) {
     }
     
-    @Post('users')
+    @Post('')
     async createUser(@Body() newUser: IUser): Promise<{ user: IUser, token: string}> {
         try {
             return await this.usersService.createUser(newUser)
@@ -18,7 +18,7 @@ export class UserController {
         }
     }
 
-    @Post('users/login')
+    @Post('login')
     @HttpCode(HttpStatus.OK)
     async loginUser(@Body() cred:{name: string, password: string}): Promise<{ user: IUser, token: string}> {
         try {
@@ -29,7 +29,7 @@ export class UserController {
     }
   
 
-    @Post('users/logout')
+    @Post('logout')
     @HttpCode(HttpStatus.OK)
     async logoutUser(@Req() request: RequestEx): Promise<void> {
         try {
@@ -39,7 +39,7 @@ export class UserController {
         }
     }
 
-    @Post('users/logoutAll')
+    @Post('logoutAll')
     @HttpCode(HttpStatus.OK)
     async logoutUserFromAll(@Req() request: RequestEx): Promise<void> {
         try {
@@ -49,7 +49,7 @@ export class UserController {
         }
     }
 
-    @Get('users')
+    @Get('')
     async getAllUsers(@Req() request:RequestEx): Promise<IUser[]> {
         if ( !request.user.admin ) {
             throw new HttpException('only admin can see all users', HttpStatus.UNAUTHORIZED )
@@ -57,12 +57,12 @@ export class UserController {
         return await this.usersService.getAllUsers();
     }
 
-    @Get('users/me')
+    @Get('me')
     async getCurrentUserDetails(@Req() request:RequestEx): Promise<IUser> {
         return request.user
     }
 
-    @Get('users/:id')
+    @Get(':id')
     async getUserDetails(@Req() request:RequestEx, @Param() params : {id:string}): Promise<IUser> {
         try {
             const _id: string = request.user["_id"].toString()
@@ -81,7 +81,7 @@ export class UserController {
         }
     }
 
-    @Patch('users/me')
+    @Patch('me')
     async updateCurrentUser(@Req() request:RequestEx, @Body() updatedUser: IUser): Promise<IUser> {
         try {
             let {user, err} = await this.usersService.updateUser(request.user, updatedUser, request.user.admin)
@@ -95,7 +95,7 @@ export class UserController {
         }
     }
 
-    @Patch('users/:id')
+    @Patch(':id')
     async updateUser(@Req() request:RequestEx, @Body() updatedUser: IUser, @Param() params : {id:string}): Promise<IUser> {
         try {
             const _id: string = request.user["_id"].toString()
@@ -119,7 +119,7 @@ export class UserController {
         }
     }
 
-    @Delete('users/me')
+    @Delete('me')
     async deleteCurrentUser(@Req() request:RequestEx): Promise<void> {
         try {
             return this.usersService.deleteUser(request.user)
@@ -128,7 +128,7 @@ export class UserController {
         }
     }
 
-    @Delete('users/:id')
+    @Delete(':id')
     async deleteUser(@Req() request:RequestEx, @Param() params : {id:string}): Promise<void> {
         try {
             const _id: string = request.user["_id"].toString()

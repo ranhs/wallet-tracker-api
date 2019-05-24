@@ -1,5 +1,5 @@
-import { IUser } from "./interfaces/user.interface";
-import { User, IUserModel } from "./models/user.model";
+import { IUser } from "../interfaces/user.interface";
+import { User, IUserModel } from "../models/user.model";
 
 export class UsersService
 {

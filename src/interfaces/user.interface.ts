@@ -1,4 +1,5 @@
 export interface IUser {
+    _id: any,
     name: string,
     password: string,
     admin: boolean,

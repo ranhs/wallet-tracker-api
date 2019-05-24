@@ -1,7 +1,7 @@
 import { Document, Schema, Model, model, HookNextFunction } from 'mongoose';
 import { IUser } from '../interfaces/user.interface';
 import { sign } from 'jsonwebtoken'
-import { compare, genSalt, hash } from 'bcryptjs'
+import { compare, hash } from 'bcryptjs'
 import { HttpException } from '@nestjs/common';
 
 export interface IUserModel extends IUser, Document {
