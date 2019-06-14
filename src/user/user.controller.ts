@@ -11,6 +11,7 @@ export class UserController {
     
     @Post('')
     async createUser(@Body() newUser: IUser): Promise<{ user: IUser, token: string}> {
+        console.log('*** post users ***')
         try {
             return await this.usersService.createUser(newUser)
         } catch (e) {
