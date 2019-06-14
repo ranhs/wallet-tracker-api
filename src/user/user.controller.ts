@@ -1,7 +1,7 @@
 import { Controller, Post, Body, HttpException, HttpStatus, HttpCode, Req, Get, Param, Patch, Delete } from '@nestjs/common';
-import { IUser } from 'src/interfaces/user.interface';
-import { UsersService } from 'src/user/users.service';
-import { RequestEx } from 'src/middleware/authentication';
+import { IUser } from '../interfaces/user.interface';
+import { UsersService } from '../user/users.service';
+import { RequestEx } from '../middleware/authentication';
 
 @Controller('users')
 export class UserController {

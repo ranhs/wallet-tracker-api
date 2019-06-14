@@ -1,7 +1,7 @@
 import { NestMiddleware, Injectable, MiddlewareFunction, HttpException, HttpStatus } from "@nestjs/common";
 import { verify } from 'jsonwebtoken'
-import { User } from "src/models/user.model";
-import { IUser } from "src/interfaces/user.interface";
+import { User } from "../models/user.model";
+import { IUser } from "../interfaces/user.interface";
 
 export interface RequestEx extends Request {
     originalUrl: string,

@@ -2,9 +2,8 @@ import { isEqual } from 'lodash'
 
 import { Controller, Post, Body, HttpException, HttpStatus, Req, Get, Param, Patch, Delete } from "@nestjs/common";
 import { BalancesService } from "./balance.service";
-import { IBalance } from "src/interfaces/balance.interface";
-import { RequestEx } from "src/middleware/authentication";
-import { IUser } from "src/interfaces/user.interface";
+import { IBalance } from "../interfaces/balance.interface";
+import { RequestEx } from "../middleware/authentication";
 
 @Controller('balances')
 export class BalanceController {

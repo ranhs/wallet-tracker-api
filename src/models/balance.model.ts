@@ -1,7 +1,6 @@
-import { IBalance } from "src/interfaces/balance.interface";
+import { IBalance } from "../interfaces/balance.interface";
 import { Document, Schema, Model, model } from "mongoose";
 import { ObjectId } from 'mongodb'
-import { ValidationPipe } from "@nestjs/common";
 
 export interface IBalanceModel extends IBalance, Document {
 }

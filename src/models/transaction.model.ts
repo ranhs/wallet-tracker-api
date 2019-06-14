@@ -1,7 +1,6 @@
-import { ITransaction } from "src/interfaces/transaction.interface";
+import { ITransaction } from "../interfaces/transaction.interface";
 import { Document, Schema, Model, model } from "mongoose";
 import { ObjectId } from 'mongodb'
-import { ValidationPipe } from "@nestjs/common";
 
 export interface ITransactionModel extends ITransaction, Document {
 }

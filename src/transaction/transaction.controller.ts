@@ -1,8 +1,7 @@
 import { Controller, Post, Body, HttpException, HttpStatus, Req, Get, Param, Patch, Delete } from "@nestjs/common";
 import { TransactionsService } from "./transaction.service";
-import { ITransaction } from "src/interfaces/transaction.interface";
-import { RequestEx } from "src/middleware/authentication";
-import { IUser } from "src/interfaces/user.interface";
+import { ITransaction } from "../interfaces/transaction.interface";
+import { RequestEx } from "../middleware/authentication";
 
 @Controller('transactions')
 export class TransactionController {

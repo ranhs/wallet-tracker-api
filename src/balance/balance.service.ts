@@ -1,5 +1,5 @@
-import { IBalance } from "src/interfaces/balance.interface";
-import { Balance, IBalanceModel } from "src/models/balance.model";
+import { IBalance } from "../interfaces/balance.interface";
+import { Balance, IBalanceModel } from "../models/balance.model";
 import { ObjectId } from "mongodb";
 
 export class BalancesService {
