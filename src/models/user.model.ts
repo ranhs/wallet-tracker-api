@@ -3,6 +3,8 @@ import { IUser } from '../interfaces/user.interface';
 import { sign } from 'jsonwebtoken'
 import { compare, hash } from 'bcryptjs'
 import { HttpException } from '@nestjs/common';
+import { Transaction } from './transaction.model';
+import { Balance } from './balance.model';
 
 export interface IUserModel extends IUser, Document {
 }
@@ -77,8 +79,8 @@ export class User extends UserModel {
     }
 
     public async preRemove(next: HookNextFunction) {
-        // await Transaction.deleteMany({ owner: this._id })
-        // await Balance.deleteMany({ owner: this._id })
+        await Transaction.deleteMany({ owner: this._id })
+        await Balance.deleteMany({ owner: this._id })
         next()
     }
 
