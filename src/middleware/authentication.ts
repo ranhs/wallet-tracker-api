@@ -37,7 +37,8 @@ export class AuthMiddleware implements NestMiddleware {
             throw new HttpException('Authentication failed', HttpStatus.UNAUTHORIZED)
         }
         token = token.replace('Bearer ', '')
-        const decoded = verify(token, /*process.env.JWT_SECRET*/'asd')
+        const jwt_secret = process.env.JWT_SECRET || 'asd'
+        const decoded = verify(token, jwt_secret)
         const user = await User.findOne({ _id: decoded._id, 'tokens.token': token })
         if ( !user ) {
             throw new HttpException('Authentication failed', HttpStatus.UNAUTHORIZED)
