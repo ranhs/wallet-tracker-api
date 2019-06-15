@@ -85,11 +85,9 @@ export class User extends UserModel {
     }
 
     public async generateAuthToken(): Promise<string> {
-        let user = this;
-        var access = 'auth';
-        var jwt_secret = process.env.JWT_SECRET || 'asd'
-        var token: string = sign({_id: user._id.toHexString(), access}, jwt_secret).toString();
-        console.log('*** JWT_SECRET', jwt_secret)
+        let user = this
+        var access = 'auth'
+        var token: string = sign({_id: user._id.toHexString(), access}, process.env.JWT_SECRET || 'asd').toString();
       
         user.tokens.push({access, token});
       
