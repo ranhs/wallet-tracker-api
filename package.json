@@ -28,7 +28,7 @@
     "@types/node": "^10.7.1",
     "bcryptjs": "^2.4.3",
     "jsonwebtoken": "^8.5.1",
-    "lodash": "^4.17.14",
+    "lodash": "^4.17.21",
     "mongoose": "^5.4.19",
     "reflect-metadata": "^0.1.12",
     "rimraf": "^2.6.2",
